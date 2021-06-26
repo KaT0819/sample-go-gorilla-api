@@ -17,7 +17,7 @@ var (
 )
 
 func Connect() {
-	dataSourceName := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8", username, password, host, schema)
+	dataSourceName := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=true", username, password, host, schema)
 
 	var err error
 	d, err := gorm.Open("mysql", dataSourceName)

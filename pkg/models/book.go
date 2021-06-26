@@ -21,7 +21,6 @@ func init() {
 }
 
 func (b *Book) Create() *Book {
-
 	db.NewRecord(b)
 	db.Create(&b)
 	return b
@@ -35,7 +34,7 @@ func GetAll() []Book {
 
 func Get(Id int64) (*Book, *gorm.DB) {
 	var book Book
-	db := db.Where("ID=?", Id).Find(&book)
+	db := db.First(&book, Id)
 	return &book, db
 }
 

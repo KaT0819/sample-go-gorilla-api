@@ -39,12 +39,12 @@ func GetBook(w http.ResponseWriter, r *http.Request) {
 
 func GetBookById(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	bookId, err := strconv.ParseInt(vars["bookId"], 0, 0)
+	id, err := strconv.ParseInt(vars["id"], 0, 0)
 	if err != nil {
 		fmt.Println("パラメータ不正")
 	}
 
-	book, _ := models.Get(bookId)
+	book, _ := models.Get(id)
 
 	// response
 	res, _ := json.Marshal(book)
@@ -59,12 +59,12 @@ func UpdateBook(w http.ResponseWriter, r *http.Request) {
 	utils.ParseBody(r, param)
 
 	vars := mux.Vars(r)
-	bookId, err := strconv.ParseInt(vars["bookId"], 0, 0)
+	id, err := strconv.ParseInt(vars["id"], 0, 0)
 	if err != nil {
 		fmt.Println("パラメータ不正")
 	}
 
-	book, db := models.Get(bookId)
+	book, db := models.Get(id)
 
 	if param.Name != "" {
 		book.Name = param.Name
@@ -88,12 +88,12 @@ func UpdateBook(w http.ResponseWriter, r *http.Request) {
 
 func DeleteBook(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	bookId, err := strconv.ParseInt(vars["bookId"], 0, 0)
+	id, err := strconv.ParseInt(vars["id"], 0, 0)
 	if err != nil {
 		fmt.Println("パラメータ不正")
 	}
 
-	book := models.Delete(bookId)
+	book := models.Delete(id)
 	res, _ := json.Marshal(book)
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
