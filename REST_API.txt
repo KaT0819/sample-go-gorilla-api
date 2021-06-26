@@ -1,0 +1,24 @@
+GET http://localhost:8000/
+
+GET http://localhost:8000/book
+
+GET http://localhost:8000/book/1
+
+POST http://localhost:8000/book
+
+{
+    "name": "name123",
+    "author": "author123",
+    "publication": pub123"
+}
+
+
+PUT http://localhost:8000/book/1
+
+{
+    "name": "name123 upd",
+    "author": "author123 upd",
+    "publication": pub123 upd"
+}
+
+DELETE http://localhost:8000/book/1
