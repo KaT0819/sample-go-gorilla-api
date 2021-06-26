@@ -1,4 +1,4 @@
-module sample-go-gorilla-api
+module github.com/KaT0819/sample-go-gorilla-api
 
 go 1.16
 

@@ -14,5 +14,5 @@ func main() {
 	routes.RegisterBookRoutes(r)
 	http.Handle("/", r)
 
-	log.Fatal(http.ListenAndServe("localhsot:8000", r))
+	log.Fatal(http.ListenAndServe("localhost:8000", r))
 }
